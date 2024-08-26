@@ -1,0 +1,12 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#sample-container{
+    background-color:#444;
+    min-height: 300px;
+    width: 100%;
+    position: relative;
+
+}

@@ -1,0 +1,28 @@
+.App {
+  display: grid;
+  grid-template-columns: auto;
+  text-align: center;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 70px;
+}
+
+.App-main{
+  background-color: #21212b;
+  min-height: 100vh;
+}
+
+.about-footer {
+  background-color: #2e2e2e;
+  color: white;
+  text-align: center;
+  padding: 1em 0;
+  position: sticky;
+  width: 100%;
+  z-index: 999;
+  bottom: 0;
+  height: 50px;
+}
+

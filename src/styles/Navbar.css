@@ -1,0 +1,379 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+#container-fluid{
+    max-height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 5;
+    display: flex;
+    background-color: #2e2e2e;
+    min-height: 70px;
+    overflow:hidden;
+    box-sizing: border-box;
+}
+
+.nav-heading{
+    display: flex;
+    flex: 0.1;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.nav-components{
+    position: sticky;
+    top: 6px;
+    display:flex;
+    flex: 0.8;
+    /* margin:  0 auto; */
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+}
+
+ul{
+    display: flex;
+}
+
+.profile{
+    position: absolute;
+    right: 1px;
+    margin-top: 7px;
+    display: flex;
+    gap: 10px;
+}
+
+.menu {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    display: flex;
+    flex:1;
+    z-index: 999;
+    gap: 10px;
+}
+
+.menu-login {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    display: flex;
+    z-index: 999;
+    gap: 10px;
+}
+
+.menu-item {
+    text-decoration: none;
+    font-family: "Roboto",sans-serif;
+    font-weight: 500;
+    color: #2e2e2e;
+    height: fit-content;
+    font-size:medium;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.menu-item:hover {
+    background-color: #bcb9b9;
+}
+
+ul li{ 
+    position: relative;
+    padding:0 3vh 0 4vh;
+    list-style-type: none;
+    font-size: 25px;
+    font-family: "Roboto",sans-serif;
+    font-weight: 400;
+    flex: 1;
+}
+
+li .username {
+    position: relative;
+    left: -10px;
+}
+li a{
+    text-decoration: none;
+    color: #d5d1cc;    
+}
+
+a:hover {
+    color:#ffff
+}
+
+.user-items li{
+    padding:0 1vh 0 1vh;
+}
+
+.profile {
+    /* background-color: blueviolet; */
+    border-radius: 25px;
+    position: relative;
+    top: -2px;
+    max-height: 40px;
+}
+
+.user-components {
+    display: flex;
+    position: relative;
+    justify-content: flex-end;
+    top: 8px;
+    /* background-color: beige; */
+}
+
+#container-fluid{
+    max-height: 0;
+    transition: max-height .5s ease-out;
+}
+
+.hamb {
+    position: relative;
+}
+.hamb-line{
+    display: flex;
+    position: relative;
+    background-color: #cdc5ba;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 20px;
+    height: 2px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    justify-content: center;
+}
+
+.hamb-line::before,
+.hamb-line::after {
+    content: '';
+    background-color: white;
+    height: 2px;
+    width: 20px;
+    position: absolute;
+    transition: all 0.3s ease-out;
+}
+.hamb-line::before {
+    top: -6px;
+}
+
+.hamb-line::after {
+    top: 6px;
+}
+
+.hamb.open .hamb-line{
+    background-color: transparent;
+}
+.hamb.open .hamb-line::before{
+    transform: rotate(45deg);
+    top: 0;
+}
+
+.hamb.open .hamb-line::after{
+    transform: rotate(-45deg);
+    top: 0;
+}
+
+.hamb.open ~ #container-fluid {
+    max-height: 100%;
+}
+
+.username {
+    display: none;
+}
+
+.hamb-menu{
+    /* background-color: aqua; */
+    position: absolute;
+    display: none;
+}
+@media screen and (min-width:768px) {
+    .nav-components{
+
+    }
+}
+
+@media (min-width:768px) and (max-width:1048px) {
+    #container-fluid {
+        display: flex;
+        /* min-height: 80px; */
+    }
+
+    .username {
+        display: none;
+    }
+
+    .nav-heading{
+        display: flex;
+        top: -2px;
+    }
+    .nav-components{
+        position: sticky;
+        display:flex;
+        flex: 0.6;
+        margin:  0 auto;
+        justify-content:space-around;
+        margin-top: -40upx;
+        align-items: center;
+        /* background-color: wheat; */
+    }
+    .user-components {
+        top: 15px;
+    }
+}
+
+@media screen and (max-width:860px){
+
+    .menu-login{
+        position: relative;
+        display: flex;
+        left: 0;
+        justify-content: center;
+        align-items:flex-start;
+        margin: 20px auto;
+        /* background-color: yellowgreen; */
+    }
+    .menu-login .menu-item{
+        padding: 10px;
+    }
+    /* .menu-item {
+        position: absolute;
+        display: flex;
+        bottom: 0;
+        font-size: 20px;
+    } */
+
+    #container-fluid  {
+        position: sticky;
+        display: grid;
+        min-height: 100px;
+        grid-template-columns: 100%;
+        transition: all 0.3s ease-out;
+        width: 100%;        
+    }
+
+    .username {
+        position: relative;
+        display: flex;
+        top: 70px;
+        justify-content: center;
+        color :#dadfe3;
+        font-size: 40px;
+    }
+
+    #container-fluid{
+        height: max-content;
+        max-height: 100%;
+    }
+    ul li {
+        padding: 0 0 3vh 0;
+        /* background-color: aqua;         */
+    }
+    a{
+        font-size: 50px;
+    }
+    h1{
+        font-size: 60px;
+    }
+    .user-items {
+        display: none;
+    }
+    .nav-heading {
+        display: flex;
+        width: 25vh;
+        top: 15px;
+        position: relative;
+        /* background-color: blue; */
+        /* justify-content: center; */
+        /* border-bottom: 1px white solid; */
+    }
+
+    .nav-components {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        padding-top: 10px;
+        left: -10px;
+        /* border-bottom: 1px solid white; */
+        /* background-color: aqua;         */
+    }
+
+    .ul-nav{
+        position: static;
+    }
+
+    ul {
+        display: block;
+    }
+
+
+    .menu{
+        margin-bottom: 20px;
+        top: 35px;
+    }
+
+    .user-components{
+        /* display: none; */
+    }
+    
+
+    .hamb-menu{
+        display:flex;
+        top: -40px;
+
+    }
+
+    .hamb-line{
+        height: 10px;
+        width: 60px;
+    }
+    .hamb-line::before,.hamb-line::after{
+        height: 10px;
+        width: 60px;
+    }
+    .hamb-line::before{top: -20px;}
+    .hamb-line::after{top: 20px;}
+}
+
+@media screen and (min-height: 601px) {
+    ul li {
+        font-size:25px;
+        margin-top:1vh;
+    }
+}
+
+@media screen and (max-width:600px){
+    ul li {
+        font-size:5px
+    }
+}
+
+.profile-dialog-overlay{
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 70px;
+    right: 0;
+    border-radius: 15px;
+
+}
+
+.profile-dialog{
+    background: #3a3a53;
+    padding: 20px;
+    width: 250px;
+    height: 250px;
+    border-radius: 15px;
+}
+
+.dialog-profile{
+    position: relative;
+    top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* background-color: aqua; */
+}

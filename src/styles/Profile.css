@@ -1,0 +1,174 @@
+/* src/UserProfile.css */
+
+.user-profile {
+    position: relative;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 100%;
+    text-align: center;
+    /* background-color: #009879; */
+  }
+  
+  .profile-picture {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .details {
+    margin-top: 10px;
+  }
+
+  .details-pack {
+    margin-top: 10px;
+  }
+  
+  .details p {
+    margin: 5px 0;
+  }
+  
+  .tracks-list{
+    display: flex;
+    justify-content: center;
+  }
+
+  .packs-list{
+    display: flex;
+    justify-content: center;
+  }
+
+  table{
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 1rem;
+    font-family: 'Roboto',sans-serif;
+    min-width: 700px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.65);
+  }
+
+  table thead tr {
+    background-color: #00987c;
+    color: #ccc;
+    text-align: left;
+  }
+
+  table th,
+  table td {
+    padding: 12px 15px;
+    color: #ccc;
+    font-weight: 500;
+    text-align: left;
+  }
+
+  table tbody tr {
+    border-bottom: 1px solid #dddddd;
+  }
+
+table tbody tr:nth-of-type(even) {
+    /* background-color: #f3f3f3; */
+}
+
+table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+#edit{
+  color: #ccc;
+  cursor: pointer;
+}
+
+.dialog-overlay{
+  background-color: rgb(0, 0, 0,0.55);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.dialog{
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 500px;
+  max-width: 100%;
+  height: fit-content;
+  box-shadow: 0 0 20px rgba(0,0,0,0.65);
+}
+
+#btn-close{
+  font-size: 1.3rem;
+  border: none;
+}
+
+#dialog-form {
+  /* background-color: #009879; */
+  justify-content: center;
+  width: 300px;
+}
+
+.form-group{
+  /* background-color: #1e1e1e; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.form-group label{
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.form-group #input-dialog{
+  /* width: 300px; */
+  padding: 8px;
+  border: 1px solid #1e1e1e;
+  border-radius: 8px;
+  border-bottom: 3px solid rgb(16, 173, 66);
+  outline: none;
+  height: 30px;
+  margin-bottom: 15px;
+}
+
+#Submit-dialog{
+  background-color: #00a550;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 50%;
+}
+
+#Submit-dialog:hover{
+  background-color: #00b33c;
+}
+
+#Submit-dialog-pack{
+  background-color: #00a550;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 50%;
+}
+
+#Submit-dialog-pack:hover{
+  background-color: #00b33c;
+}
+
+
+.btn-closed{
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  width: 100%;
+}

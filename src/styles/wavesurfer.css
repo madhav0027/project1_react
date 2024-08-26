@@ -1,0 +1,142 @@
+#audio-container {
+    /* background-color: #7278a9c5;     */
+    margin:  0 auto;
+    margin-top: 20px;
+    /* width: 270px; */
+}
+
+#wave{
+    position: relative;
+    margin-top: 2vh;
+    border-radius: 30px;
+    /* margin-left: 1vh; */    
+}
+
+#audio-container{
+    display: grid;
+    gap: 1vh;
+    grid-template-columns: repeat(4,1fr);
+}
+
+#track-container{
+    width: 270px;
+    height: fit-content;
+    border-radius: 30px;
+    /* background-image: linear-gradient(to bottom , rgba(64, 127, 158, 0.541), #7d7d7d); */
+    background-color: #242441;
+    border: 1px solid #ccc;
+    box-shadow: 5px 4px 8px rgb(0, 0, 0,0.1);
+    overflow: auto;
+    border: none;
+    scrollbar-width: none;
+}
+
+.track-name{   
+    border-radius: 10px;
+    font-size: 2.5rem;
+    margin: 0;
+    display: flex;
+    color: #adadad;
+    font-family: 'Roboto',sans-serif;
+    font-weight: 400;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.track-name a {
+    font-size: 1.5rem;
+    color: #ccc;
+    text-decoration: none;
+}
+
+#track-data{
+    display: flex;
+    flex-direction:row;
+}
+
+.track-play{
+    flex: 1;
+    border: none;
+    text-align: center;
+    cursor: pointer;
+    background-color: inherit;
+    height: 27px;
+}
+
+#count {
+    flex: 0.8;
+    background-color: inherit;
+}
+
+.icon-1{
+    color: #fff;  
+}
+
+.icon {
+    color: #ccc;
+}
+
+.icon:hover{
+    color:#fff;
+}
+
+.track-download{
+    border: none;
+    text-align: center;
+    cursor: pointer;
+    width: 100px;
+    flex: 0.3;
+    max-height: 30px;
+    background-color: inherit;
+}
+
+.icon-3{
+    color: #ccc;
+    background-color: inherit;
+}
+
+.icon:active{
+    color:#dc7676;
+}
+
+.track-stop {
+        height: 27px;
+        flex: 1;
+        border: none;
+        background-color: inherit;
+        text-align: center;
+        cursor: pointer;
+
+}
+
+.track-scale{
+    flex: 1;
+    background-color: inherit;
+    color: #adadad;
+    font-family: 'Roboto',sans-serif;
+    text-align: center;
+}
+
+.track-time{
+    background-color: inherit;
+    text-align: center;
+    font-size: 1rem;
+    color: #adadad;
+}
+
+.track-name{
+    /* background-color: aqua; */
+    font-size: 1rem;
+    display: flex;
+    text-align: end;
+    color: #fff;
+    margin: 0 auto;
+    max-width: fit-content !important;
+}
+
+.track-tags{
+    color: #adadad;
+    overflow: hidden;
+    /* background-color: violet; */
+}
+
