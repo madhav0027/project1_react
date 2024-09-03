@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export default axios.create({
-    baseURL:'https://happy-emu-28.io',
+    baseURL:'https://fuzzy-earwig-49.telebit.io',
     withCredentials:true
 })
 
