@@ -81,10 +81,10 @@ function Navbar()
                 </div>
                 {isopen &&<div className='nav-components'>
                     <ul className='ul-nav'>
-                        <li><a href='/dashboard'>Home</a></li>
+                        <li><a href='/#/dashboard'>Home</a></li>
                         {/* <li><a href='/samples'>Samples</a></li> */}
-                        <li><a href='/packs'>Packs</a></li>
-                        <li><a href='/about'>About</a></li>
+                        <li><a href='/#/packs'>Packs</a></li>
+                        <li><a href='/#/about'>About</a></li>
                         <li>
                         {isauthenticated ? <span className='username'>{username}</span> : <span className='username'></span> }
                         </li>
@@ -95,13 +95,13 @@ function Navbar()
                 <div className='profile-dialog-overlay'>
                     <div className='profile-dialog'>
                         <div className='dialog-profile'>
-                            <Link to={'/profile'}>
+                            <Link to={'/#/profile'}>
                                 <button style={{marginBottom:'5px',width:'150px',height:'40px',backgroundColor:'#dadfe3'}} className='menu-item'>Profile</button>
                             </Link>
-                            <Link to={'/trackupload'}>
+                            <Link to={'/#/trackupload'}>
                                 <button style={{marginBottom:'5px',width:'150px',height:'40px'}} className='menu-item'><FontAwesomeIcon style={{fontSize:'15px'}} icon={faArrowUp}/> Upload Track</button>
                             </Link>
-                            <Link to={'/packupload'}>
+                            <Link to={'/#/packupload'}>
                                 <button style={{marginBottom:'5px',width:'150px',height:'40px'}} className='menu-item'><FontAwesomeIcon style={{fontSize:'15px'}} icon={faArrowUp}/> Upload Pack</button>
                             </Link>
                                 <button style={{marginBottom:'5px',width:'150px',height:'40px'}} onClick={logout} className="menu-item">Logout</button>
@@ -117,10 +117,10 @@ function Navbar()
             </div>
                 :
                     isopen &&<div className="menu-login">
-                        <Link to={'/login'}>
+                        <Link to={'/#/login'}>
                             <button className="menu-item">Login</button>
                         </Link>
-                        <Link to={'/register'}>
+                        <Link to={'/#/register'}>
                             <button className="menu-item">Register</button>
                         </Link>
 

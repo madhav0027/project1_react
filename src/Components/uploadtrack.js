@@ -32,10 +32,10 @@ const MusicTrackUploadForm = () => {
       if(res.status === 440){
         localStorage.clear();
         alert("Session has been expired!.Please log in again");
-        navigate('/login');
+        navigate('/#/login');
       }else if(res.data){
             setArtistName(res.data.artistname)
-            navigate('/profile')
+            navigate('/#/profile')
             window.location.reload();
             return;
         }
