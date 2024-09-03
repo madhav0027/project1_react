@@ -24,13 +24,11 @@ function App() {
   return (
     <div className="App">
       <AuthProvider>
-       <HashRouter>
         <header className="App-header">
           <Navbar/>
         </header>
         <main className='App-main'>
           <GoogleOAuthProvider clientId='350363248657-rknoitft5u3ugm0mgvmkm96vkrdkg1o7.apps.googleusercontent.com'>
-
             <Routes>
               <Route path="/" element={<Navigate replace to="/dashboard"/> } />
               <Route path="/login" element={<Login/>}/>
@@ -52,7 +50,6 @@ function App() {
         {/* <footer className="about-footer">
                 <p>&copy; 2024 Music Production & Samples. All rights reserved.</p>
               </footer> */}
-        </HashRouter>
       </AuthProvider>      
     </div>
   );
