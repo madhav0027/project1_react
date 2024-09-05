@@ -30,7 +30,7 @@ function App() {
         <main className='App-main'>
           <GoogleOAuthProvider clientId='350363248657-rknoitft5u3ugm0mgvmkm96vkrdkg1o7.apps.googleusercontent.com'>
             <Routes>
-              <Route path="/" element={<Navigate replace to="/dashboard"/> } />
+              <Route path="/" element={<Navigate replace to="https://madhav0027.github.io/project1_react/#/dashboard"/> } />
               <Route path="/login" element={<Login/>}/>
                 <Route element={<Privateroute/>}> 
                   <Route path='/profile' element={<Profile/>}/>
