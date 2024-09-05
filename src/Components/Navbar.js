@@ -81,10 +81,10 @@ function Navbar()
                 </div>
                 {isopen &&<div className='nav-components'>
                     <ul className='ul-nav'>
-                        <li><a href='/#/dashboard'>Home</a></li>
+                        <li><a href='/dashboard'>Home</a></li>
                         {/* <li><a href='/samples'>Samples</a></li> */}
-                        <li><a href='/#/packs'>Packs</a></li>
-                        <li><a href='/#/about'>About</a></li>
+                        <li><a href='/packs'>Packs</a></li>
+                        <li><a href='/about'>About</a></li>
                         <li>
                         {isauthenticated ? <span className='username'>{username}</span> : <span className='username'></span> }
                         </li>
