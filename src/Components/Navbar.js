@@ -95,13 +95,13 @@ function Navbar()
                 <div className='profile-dialog-overlay'>
                     <div className='profile-dialog'>
                         <div className='dialog-profile'>
-                            <Link to={'https://madhav0027.github.io/project1_react/#/profile'}>
+                            <Link to={'/profile'}>
                                 <button style={{marginBottom:'5px',width:'150px',height:'40px',backgroundColor:'#dadfe3'}} className='menu-item'>Profile</button>
                             </Link>
-                            <Link to={'https://madhav0027.github.io/project1_react/#/trackupload'}>
+                            <Link to={'/trackupload'}>
                                 <button style={{marginBottom:'5px',width:'150px',height:'40px'}} className='menu-item'><FontAwesomeIcon style={{fontSize:'15px'}} icon={faArrowUp}/> Upload Track</button>
                             </Link>
-                            <Link to={'https://madhav0027.github.io/project1_react/#/packupload'}>
+                            <Link to={'/packupload'}>
                                 <button style={{marginBottom:'5px',width:'150px',height:'40px'}} className='menu-item'><FontAwesomeIcon style={{fontSize:'15px'}} icon={faArrowUp}/> Upload Pack</button>
                             </Link>
                                 <button style={{marginBottom:'5px',width:'150px',height:'40px'}} onClick={logout} className="menu-item">Logout</button>
