@@ -25,29 +25,42 @@ export default class Dashboard extends React.Component{
         }
     }
     
+ 
     async componentDidMount() {
-        await api.get('/auth/api/data')
+        await axios.get('/auth/api/data',{
+            method:'GET'
+        })
         .then(res => {
-            // console.log(res.data);
+            // console.log(res.data);        
             let tracks = res.data;
-            console.log(res.data.length)
+            console.log(tracks)
             this.setState({totalpage:tracks.length})
             this.setState({track:tracks})
             this.setState({tracklist:tracks})
             this.setState({loading:false})
         }).catch((err) => {
             if(err.response){
-                window.location.replace('http://localhost:3000/errorpage')
+                window.location.replace(`${api.get()}/#/errorpage`)
             }
-        })
-
-
+        }) 
+        
         // console.log(this.indexoflastpost)        
         // console.log(this.indexoffirstpost)
 
     }
-    
-    
+        
+    // async geturldata () {
+    //     this.state.track.map(async (tracks) => {
+    //         await fetch(tracks.trackUrl,{
+    //             method:"GET",
+    //             mode:'no-cors'
+    //         }).then(res => res.blob())
+    //         .catch(err => console.log(err))
+
+    //     })
+    // }
+
+
     track = () => {
         this.indexoflastpost = this.state.currentpage * this.state.postperpage;
         this.indexoffirstpost = this.indexoflastpost - this.state.postperpage;
@@ -92,11 +105,10 @@ export default class Dashboard extends React.Component{
             :
             <div id='main-container' className="container-fluid">
                     
-                    <div className='container-fluid' id='Dashboard-container'>
-                        <div style={{color:'#c1333f'}} className='dash-heading'>
-                        </div>
-                   </div>
-                
+                <div className='image-container'>
+                    <img src={require(`../public/Banner.png`)}/>
+                </div>
+
                 <Searchbar queryclick={this.handlesearchclick} querycallback={this.handlecallback}/>
                 <br/>
                 <section id='container-section'>
@@ -106,10 +118,10 @@ export default class Dashboard extends React.Component{
                     <div className='container' id='sample-block'>
                 {
 
-                    this.track().map((tracks,number) => {                        
-                        return(
-
-                            <div key={number} className='sample'>                                                      
+                    this.track().map((tracks) => {                        
+                        // this.geturldata()
+                            return(
+                                <div key={tracks._id} className='sample'>                                                      
                             <Audioplayer
                                 trackname={tracks.trackname}
                                 trackartist={tracks.artistname}
@@ -118,7 +130,7 @@ export default class Dashboard extends React.Component{
                                 />
                         </div>
                             );
-                        })
+                   })
                 }
                     </div>
                 

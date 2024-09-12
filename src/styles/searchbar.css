@@ -33,3 +33,9 @@
     transform: scaleX(-1);
     cursor: pointer;
 }
+
+@media (max-width:767px) {
+    #search-bar{
+        width: 70%;
+    }
+}

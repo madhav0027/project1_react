@@ -1,19 +1,22 @@
 #about-heading{
-    position: relative;
-    top: 1vh;
+  position: relative;
+  top: 1vh;
+  font-family: 'Roboto',sans-serif;
+  color: silver;
 }
 
+
 .about-container {
-    font-family: Arial, sans-serif;
+  font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #e66161d1;
-    height: 100vh;
+    /* background-color: #e66161d1; */
+    height: max-content;
     color: #333;
   }
   
   .about-header {
-    background-color: #333;
+    /* background-color: #333; */
     color: white;
     padding: 1em 0;
     text-align: center;
@@ -30,15 +33,22 @@
   }
   
   .about-main h2 {
-    color: #444;
+    font-family: 'Roboto',sans-serif;
+    color: antiquewhite;
   }
   
   .about-section {
     margin-bottom: 20px;
+    color:bisque;
   }
   
   .about-section p {
     line-height: 1.6;
   }
   
-   
+  
+  @media screen and (min-width:860px) {
+    #aboutbanner-heading{
+      width: 500px;
+    }
+  }

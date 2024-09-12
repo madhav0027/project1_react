@@ -5,7 +5,7 @@ import Pack from "../Views/pack";
 import Paginate from '../Components/Pagination'
 import Loading from "./Loading";
 import { useNavigate } from "react-router-dom";
-
+import axios from 'axios';
 
 function Packs() {
 
@@ -17,7 +17,7 @@ function Packs() {
     const [postPerPage] = useState(16)
 
     async function packvalue () {
-        await api.get("/auth/api/pack")
+        await axios.get("/auth/api/pack")
             .then(res => {
                 console.log(res.data.length)
                 settotalpost(res.data.length)

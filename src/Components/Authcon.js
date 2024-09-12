@@ -1,7 +1,8 @@
 import { createContext, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import api from '../api/api';
+import axios from 'axios';
 import { Cookies, useCookies } from "react-cookie";
+import api from "../api/api";
 
 export const AuthContext = createContext();
 
@@ -15,8 +16,11 @@ const AuthProvider = ({children}) =>{
     
     const loginaction = async (email,password) => {
         try {
-            let response = await api.post('/auth/api/login',{
-                email,password
+            let response = await axios.post('/auth/api/login',{email,password},{
+                headers:{
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type':'application/json'
+                }
             })
             if(response.status === 440)
                 {
@@ -52,7 +56,7 @@ const logout = () => {
         localStorage.clear();
         localStorage.removeItem('sessionid');
         setisauthenticated(false)
-        api.post('/auth/api/logout')
+        axios.post('/auth/api/logout')
             .then((res) => {
                 if(res.data)
                     navigate("/login");

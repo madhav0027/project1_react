@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import '../styles/Profile.css'
-import api from '../api/api';
+import axios from 'axios';
 import { useAuth } from '../Components/Authcon';
 import Loading from '../Components/Loading';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit } from '@fortawesome/free-regular-svg-icons';
 import { faClose } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
+import api from '../api/api';
 
 
 export default function Profile () {
@@ -75,7 +76,7 @@ export default function Profile () {
       else if(packdescription === '')
         setstatus('Opps,forget PackDescription')
       else {
-          api.put(`/auth/api/updatepack?token=${token}`,{
+          axios.put(`/auth/api/updatepack?token=${token}`,{
             packid,
             packname,packdescription
         }).then(res => {
@@ -108,7 +109,7 @@ export default function Profile () {
       else if(trackname === '')
         setstatus('Opps,forget write name')
       else{
-          api.put(`/auth/api/updatetrack?token=${token}`,{
+          axios.put(`/auth/api/updatetrack?token=${token}`,{
             trackid,
             trackkey,trackname
           }).then(res => {
@@ -133,7 +134,12 @@ export default function Profile () {
 
     useEffect(() => {
       async function apidata(){
-        await api.post(`/auth/api/profile?token=${token}`)
+        await axios.get(`/auth/api/profile`,{
+          headers:{
+            'Authorization':`Bearer ${token}`,
+            'Content-Type':"application/json"
+          }
+        })
         .then((res) => {
           // if(res.data){
             console.log(res.data)

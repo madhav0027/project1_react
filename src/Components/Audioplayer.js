@@ -6,7 +6,7 @@ import { faPlay, faStop, faDownload } from "@fortawesome/free-solid-svg-icons";
 import { faClock } from "@fortawesome/free-regular-svg-icons";
 import WavesurferPlayer from '@wavesurfer/react'
 import { AuthContext } from "./Authcon";
-
+import api from "../api/api";
 
 export default class Audioplayer extends React.Component{
 
@@ -50,7 +50,7 @@ export default class Audioplayer extends React.Component{
         console.log('click')
         let token = this.state.token;
         if(!token)
-            window.location.replace('http://localhost:3000/login')
+            window.location.replace(`${api.getUri()}/login`)
         else{
             const element = document.createElement('a');
             element.href = downloadurl;
@@ -77,7 +77,7 @@ export default class Audioplayer extends React.Component{
                         normalize
                         onPlay={() => !this.state.playing}
                         onPause={() => this.state.playing}
-                        url={this.props.trackurl}
+                        url={(this.props.trackurl)}
                         />
                         </div>
                         <br/>

@@ -4,8 +4,12 @@ import '../styles/about.css'
 function About() {
     return(
         <div className="about-container">
+            <div className='container-fluid' id='About-banner'>
+                <div style={{color:'#c1333f'}} className='aboutbanner-heading'>
+                </div>
+            </div>            
             <h1 id='about-heading'>
-                About us
+                About Us
             </h1>
             <main className="about-main">
             <section className="about-section" id="introduction">

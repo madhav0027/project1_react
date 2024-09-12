@@ -1,11 +1,11 @@
 /* src/UserProfile.css */
 
 .user-profile {
-    position: relative;
-    border-radius: 10px;
-    padding: 20px;
-    max-width: 100%;
-    text-align: center;
+  position: relative;
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 100%;
+  text-align: center;
     /* background-color: #009879; */
   }
   
@@ -45,12 +45,14 @@
     font-family: 'Roboto',sans-serif;
     min-width: 700px;
     box-shadow: 0 0 20px rgba(0,0,0,0.65);
+    
   }
-
+  
   table thead tr {
     background-color: #00987c;
     color: #ccc;
     text-align: left;
+    margin: 0 auto;
   }
 
   table th,
@@ -171,4 +173,18 @@ table tbody tr:last-of-type {
   justify-content: end;
   align-items: center;
   width: 100%;
+} 
+
+@media (max-width:767px) {
+  .tracks-list{
+    display: flex;
+    justify-content: center;
+  }
+  .details-pack{
+    height: 100vh;
+  }
+  .details{
+    width: min-content;
+  }
+
 }

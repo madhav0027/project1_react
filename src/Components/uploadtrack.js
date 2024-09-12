@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import '../styles/trackupload.css'
 import api from "../api/api";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const MusicTrackUploadForm = () => {
   const [artistname,setArtistName] = useState("");
@@ -23,9 +24,10 @@ const MusicTrackUploadForm = () => {
     formdata.append('trackname',trackname)
     formdata.append('trackkey',trackkey)
     formdata.append('track',track);
-    await api.post('/auth/api/trackupload',
+    await axios.post('/auth/api/trackupload',
         formdata,{
           headers:{
+            'Authorization':`Bearer ${token}`,
             'content-type': 'multipart/form-data',
           }
     }).then((res) => {
@@ -40,7 +42,7 @@ const MusicTrackUploadForm = () => {
             return;
         }
     }).catch((err) => {if(err.response){
-      navigate('/errorpage');}
+      navigate('/#/errorpage');}
   })
   };
 

@@ -5,11 +5,12 @@ import person from '../public/person.svg'
 import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from './Authcon'
-import api from '../api/api';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowUp, faUpDown, faWaveSquare } from '@fortawesome/free-solid-svg-icons'
 import { faUps } from '@fortawesome/free-brands-svg-icons'
 import { faArrowAltCircleUp } from '@fortawesome/free-regular-svg-icons'
+import axios from 'axios'
+import api from '../api/api'
 
 function Navbar()
 {
@@ -48,7 +49,12 @@ function Navbar()
         }
         if(token){
             console.log(token)
-            api.post(`/auth/api/verify?token=${token}`)
+            api.get(`/auth/api/verify`,{
+                headers:{
+                    'Authorization':`Bearer ${token}`,
+                    'Content-Type':'application/json'
+                }
+            })
             .then((res) => {
                     console.log(res.status);
                     setisauthenticated(true); 
@@ -60,14 +66,12 @@ function Navbar()
                     setisauthenticated(false);
                     user.logout();
                 }else if(err.response){
-                    navigate('/errorpage');
+                    navigate('project1_react/#/errorpage');
                 }
             })
         }
 
     },[]) 
-    
-    
 
 
     return (
@@ -81,10 +85,10 @@ function Navbar()
                 </div>
                 {isopen &&<div className='nav-components'>
                     <ul className='ul-nav'>
-                        <li><a href='https://madhav0027.github.io/project1_react/#/dashboard'>Home</a></li>
+                        <li><Link to='/dashboard'>Home</Link></li>
                         {/* <li><a href='/samples'>Samples</a></li> */}
-                        <li><a href='https://madhav0027.github.io/project1_react/#/packs'>Packs</a></li>
-                        <li><a href='https://madhav0027.github.io/project1_react/#/about'>About</a></li>
+                        <li><Link to='/packs'>Packs</Link></li>
+                        <li><Link to='/about'>About</Link></li>
                         <li>
                         {isauthenticated ? <span className='username'>{username}</span> : <span className='username'></span> }
                         </li>
@@ -117,10 +121,10 @@ function Navbar()
             </div>
                 :
                     isopen &&<div className="menu-login">
-                        <Link to={'https://madhav0027.github.io/project1_react/#/login'}>
+                        <Link to={'/login'}>
                             <button className="menu-item">Login</button>
                         </Link>
-                        <Link to={'https://madhav0027.github.io/project1_react/#/register'}>
+                        <Link to={'/register'}>
                             <button className="menu-item">Register</button>
                         </Link>
 

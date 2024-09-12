@@ -79,16 +79,18 @@ export default function Login () {
                 onSuccess={async (CredentialResponse) => {
                     auth.token = CredentialResponse.credential;
                     let tokenid = auth.token
-                    console.log(tokenid)
                     localStorage.setItem('tokenid',tokenid);
-                    await api.post('/auth/api/google',{
-                        tokenid
+                    await api.get('/auth/api/google',{
+                        headers:{
+                            'Authorization':`bearer ${tokenid}`,
+                            'Content-Type':'application/json'
+                        }
                     }
                 ).then((res) => {
                     if(res.data){
                         settoken(res.data.sessonid)
                         localStorage.setItem("sessionid",res.data.sessionid);                              
-                        navigate('/dashboard');
+                        navigate('/');
                         window.location.reload()
                         return;}
                     })
