@@ -93,3 +93,22 @@
     gap: 2vh;
 
 }
+
+@media (max-width:767px) {
+    #container-section-pack{
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media (max-width:1200px) {
+    #container-section-pack{
+        grid-template-columns: repeat(3,2fr);
+    }
+}
+
+@media (max-width:900px) {
+    #container-section-pack{
+        grid-template-columns: repeat(2,2fr);
+    }
+}

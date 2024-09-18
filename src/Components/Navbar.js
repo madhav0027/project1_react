@@ -6,8 +6,7 @@ import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from './Authcon'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowUp, faUpDown, faWaveSquare } from '@fortawesome/free-solid-svg-icons'
-import { faUps } from '@fortawesome/free-brands-svg-icons'
+import { faArrowUp, faBoxesStacked, faGear, faHouse, faUpDown, faUpload, faWaveSquare } from '@fortawesome/free-solid-svg-icons'
 import { faArrowAltCircleUp } from '@fortawesome/free-regular-svg-icons'
 import axios from 'axios'
 import api from '../api/api'
@@ -43,10 +42,6 @@ function Navbar()
 
     useEffect(() => {            
         setproifleopen(false);
-        if(window.screen.availWidth > 768){
-            console.log('open')
-            setopen(true)
-        }
         if(token){
             console.log(token)
             api.get(`/auth/api/verify`,{
@@ -77,16 +72,15 @@ function Navbar()
     return (
         <div className='container-fluid' id='container-fluid'>
                 <div className='nav-heading'>
-                    <h1 style={{fontfamily: ("Roboto",'sans-serif'),fontWeight:'600',paddingLeft:'5px',fontSize:'35px'}}>
+                    <h1 id='nav-heading-h1' style={{fontfamily: ("Roboto",'sans-serif'),fontWeight:'600',paddingLeft:'5px',fontSize:'35px'}}>
                         <Link style={{textDecoration:'none', color:'#dadfe3'}} to={'/dashboard'}>
                             Musing 
                         </Link>
                     </h1>
                 </div>
-                {isopen &&<div className='nav-components'>
+                {<div className='nav-components'>
                     <ul className='ul-nav'>
                         <li><Link to='/dashboard'>Home</Link></li>
-                        {/* <li><a href='/samples'>Samples</a></li> */}
                         <li><Link to='/packs'>Packs</Link></li>
                         <li><Link to='/about'>About</Link></li>
                         <li>
@@ -100,48 +94,62 @@ function Navbar()
                     <div className='profile-dialog'>
                         <div className='dialog-profile'>
                             <Link to={'/profile'}>
-                                <button style={{marginBottom:'5px',width:'150px',height:'40px',backgroundColor:'#dadfe3'}} className='menu-item'>Profile</button>
+                                <button style={{marginTop:'0px',width:'150px',height:'40px',backgroundColor:'#dadfe3'}} className='menu-item'>Profile</button>
                             </Link>
                             <Link to={'/trackupload'}>
-                                <button style={{marginBottom:'5px',width:'150px',height:'40px'}} className='menu-item'><FontAwesomeIcon style={{fontSize:'15px'}} icon={faArrowUp}/> Upload Track</button>
+                                <button style={{marginBottom:'0px',width:'150px',height:'40px'}} className='menu-item'><FontAwesomeIcon style={{fontSize:'15px'}} icon={faArrowUp}/> Upload Track</button>
                             </Link>
                             <Link to={'/packupload'}>
-                                <button style={{marginBottom:'5px',width:'150px',height:'40px'}} className='menu-item'><FontAwesomeIcon style={{fontSize:'15px'}} icon={faArrowUp}/> Upload Pack</button>
+                                <button style={{marginBottom:'0px',width:'150px',height:'40px'}} className='menu-item'><FontAwesomeIcon style={{fontSize:'15px'}} icon={faArrowUp}/> Upload Pack</button>
                             </Link>
-                                <button style={{marginBottom:'5px',width:'150px',height:'40px'}} onClick={logout} className="menu-item">Logout</button>
+                            <Link>
+                                <button style={{marginBottom:'0px',width:'150px',height:'40px'}} onClick={logout} className="menu-item">Logout</button>
+                            </Link>
                         </div>
                     </div>
                 </div>
                 }
                 
 
-            {isauthenticated ? <div className="menu">
+            {isauthenticated ? 
+            <div className="menu">
                     <img className='profile' style={{cursor:'pointer'}} onClick={profiledialog} src={isauthenticated ? profile : person}/>
-
+                    <Link to={'/trackupload'}>
+                        <FontAwesomeIcon style={{color:'black',cursor:'pointer',fontSize:'30px',position:'relative',top:'-22px'}} icon={faUpload}/>
+                    </Link>
             </div>
                 :
-                    isopen &&<div className="menu-login">
+                    <div className="menu-login">
                         <Link to={'/login'}>
                             <button className="menu-item">Login</button>
                         </Link>
                         <Link to={'/register'}>
                             <button className="menu-item">Register</button>
                         </Link>
-
-                    </div>}
+                    </div>
+                    
+                    } 
 
                 <div className='user-components'>
-                 { isopen &&  <ul className='user-items'>
-                    </ul> }
-                    <div className='hamb-menu'>
-                        {/* <input type='checkbox' className='slide-menu'  /> */}
-                        <div className={`hamb ${isopen? 'open':''}`} onClick={togglemenu}>
-                            <span className='hamb-line'></span>
-                        </div>
+                    <div  class="mobile-navbar">
+                        <Link style={{padding:0,marginTop:'-27px'}} to='/dashboard'>
+                            <FontAwesomeIcon style={{color:'white',cursor:'pointer',fontSize:'25px'}} icon={faHouse}/>
+                        </Link>
+                        <Link style={{padding:0,marginTop:'-27px'}} to='/packs'>                        
+                            <FontAwesomeIcon style={{color:'white',cursor:'pointer',fontSize:'25px'}} icon={faBoxesStacked}/>
+                        </Link>
+                        <Link style={{padding:0,marginTop:'-27px'}} to='/about'>                        
+                            <FontAwesomeIcon style={{color:'white',cursor:'pointer',fontSize:'25px'}} icon={faGear}/>
+                        </Link>
                     </div>
                 </div>
+                    {/* <div className='hamb-menu'> */}
+                        {/* <div className={`hamb ${isopen? 'open':''}`} onClick={togglemenu}>
+                            <span className='hamb-line'></span>
+                        </div> */}
+                    {/* </div> */}
         </div>
     );
 }
 
-export default Navbar
+export default Navbar;

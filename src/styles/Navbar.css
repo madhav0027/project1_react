@@ -2,6 +2,23 @@
     padding: 0;
     margin: 0;
 }
+
+.mobile-navbar{
+    position: relative;
+    display: flex;
+    background-color: #0e1f40;
+    width: 100%;
+    justify-content: space-between;
+    padding: 15px;
+    margin-top: -20px;
+    max-height: 70px;
+}
+
+
+.user-components{
+    position: relative;
+}
+
 #container-fluid{
     max-height: 100%;
     width: 100%;
@@ -131,56 +148,9 @@ a:hover {
     transition: max-height .5s ease-out;
 }
 
-.hamb {
-    position: relative;
+.user-components{
+    display: none;
 }
-.hamb-line{
-    display: flex;
-    position: relative;
-    background-color: #cdc5ba;
-    flex-direction: column;
-    justify-content: space-around;
-    width: 20px;
-    height: 2px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    justify-content: center;
-}
-
-.hamb-line::before,
-.hamb-line::after {
-    content: '';
-    background-color: white;
-    height: 2px;
-    width: 20px;
-    position: absolute;
-    transition: all 0.3s ease-out;
-}
-.hamb-line::before {
-    top: -6px;
-}
-
-.hamb-line::after {
-    top: 6px;
-}
-
-.hamb.open .hamb-line{
-    background-color: transparent;
-}
-.hamb.open .hamb-line::before{
-    transform: rotate(45deg);
-    top: 0;
-}
-
-.hamb.open .hamb-line::after{
-    transform: rotate(-45deg);
-    top: 0;
-}
-
-.hamb.open ~ #container-fluid {
-    max-height: 100%;
-}
-
 .username {
     display: none;
 }
@@ -190,6 +160,35 @@ a:hover {
     position: absolute;
     display: none;
 }
+
+.profile-dialog-overlay{
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    z-index: 100;
+    top: 70px;
+    right: 0;
+    border-radius: 15px;
+
+}
+
+.profile-dialog{
+    background: #3a3a53;
+    padding: 20px;
+    width: 250px;
+    height: 250px;
+    border-radius: 15px;
+}
+
+.dialog-profile{
+    position: relative;
+    top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* background-color: aqua; */
+}
+
 @media screen and (min-width:768px) {
     .nav-components{
 
@@ -208,36 +207,50 @@ a:hover {
 
     .nav-heading{
         display: flex;
-        top: -2px;
+        justify-content: center;
     }
     .nav-components{
-        position: sticky;
+        /* position: sticky;
         display:flex;
         flex: 0.6;
         margin:  0 auto;
         justify-content:space-around;
         margin-top: -40upx;
-        align-items: center;
+        align-items: center; */
+        display: none;
         /* background-color: wheat; */
     }
     .user-components {
         top: 15px;
     }
+
+    .mobile-navbar{
+        display: block;
+    }
+    
 }
 
 @media screen and (max-width:860px){
 
-    .menu-login{
-        position: relative;
+    .menu{
+        position: absolute;
+        right: 0;
+        padding-right: 10px;
+        margin-top: -10px;
         display: flex;
-        left: 0;
-        justify-content: center;
-        align-items:flex-start;
-        margin: 20px auto;
+        justify-content: space-between;
         /* background-color: yellowgreen; */
     }
-    .menu-login .menu-item{
-        padding: 10px;
+    .menu-login{
+        position: absolute;
+        right: 10px;
+        top: -10px;
+        display: flex;
+        z-index: 999;
+        gap: 10px;
+    }
+    .nav-heading{
+        height: max-content;
     }
     /* .menu-item {
         position: absolute;
@@ -246,13 +259,16 @@ a:hover {
         font-size: 20px;
     } */
 
+    .profile{
+
+    }
+    
     #container-fluid  {
         position: sticky;
         display: grid;
-        min-height: 100px;
         grid-template-columns: 100%;
         transition: all 0.3s ease-out;
-        width: 100%;        
+        width: 100%;       
     }
 
     .username {
@@ -278,29 +294,28 @@ a:hover {
     h1{
         font-size: 60px;
     }
+    .nav-components{
+        display: none;
+    }
     .user-items {
         display: none;
     }
     .nav-heading {
         display: flex;
-        width: 25vh;
-        top: 15px;
+        /* width: 25vh; */
+        top: 10px;
         position: relative;
         /* background-color: blue; */
-        /* justify-content: center; */
+        justify-content: flex-start;
         /* border-bottom: 1px white solid; */
     }
 
-    .nav-components {
-        position: relative;
-        display: flex;
-        justify-content: center;
-        padding-top: 10px;
-        left: -10px;
-        /* border-bottom: 1px solid white; */
-        /* background-color: aqua;         */
+    .user-components{
+        display: block;
+        margin-top: 25px;
     }
 
+    
     .ul-nav{
         position: static;
     }
@@ -315,27 +330,31 @@ a:hover {
         top: 35px;
     }
 
-    .user-components{
-        /* display: none; */
+    .profile-dialog-overlay{
+        background-color: rgba(0, 0, 0, 0.5);
+        position: fixed;
+        z-index: 100;
+        top: 70px;
+        right: 0;
+        border-radius: 15px;    
     }
+
+    .profile-dialog{
+        background: #3a3a53;
+        padding: 1px;
+        width: 250px;
+        height: 320px;
+        border-radius: 15px;
+    }
+
+    .dialog-profile{
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center; 
+        /* background-color: aqua; */
+    }    
     
-
-    .hamb-menu{
-        display:flex;
-        top: -40px;
-
-    }
-
-    .hamb-line{
-        height: 10px;
-        width: 60px;
-    }
-    .hamb-line::before,.hamb-line::after{
-        height: 10px;
-        width: 60px;
-    }
-    .hamb-line::before{top: -20px;}
-    .hamb-line::after{top: 20px;}
 }
 
 @media screen and (min-height: 601px) {
@@ -351,29 +370,3 @@ a:hover {
     }
 }
 
-.profile-dialog-overlay{
-    background-color: rgba(0, 0, 0, 0.5);
-    position: fixed;
-    top: 70px;
-    right: 0;
-    border-radius: 15px;
-
-}
-
-.profile-dialog{
-    background: #3a3a53;
-    padding: 20px;
-    width: 250px;
-    height: 250px;
-    border-radius: 15px;
-}
-
-.dialog-profile{
-    position: relative;
-    top: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    /* background-color: aqua; */
-}

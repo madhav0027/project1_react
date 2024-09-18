@@ -111,10 +111,10 @@ export default class Dashboard extends React.Component{
 
                 <Searchbar queryclick={this.handlesearchclick} querycallback={this.handlecallback}/>
                 <br/>
-                <section id='container-section'>
                     <h1 style={{color:'#dadfe3', fontFamily:('Roboto','sans-serif'),fontWeight:'500'}}>
                         Trending Loops
                     </h1>
+                <section id='container-section'>
                     <div className='container' id='sample-block'>
                 {
 
@@ -122,7 +122,7 @@ export default class Dashboard extends React.Component{
                         // this.geturldata()
                             return(
                                 <div key={tracks._id} className='sample'>                                                      
-                            <Audioplayer
+                            <Audioplayer id="player"
                                 trackname={tracks.trackname}
                                 trackartist={tracks.artistname}
                                 trackkey={tracks.trackkey}
